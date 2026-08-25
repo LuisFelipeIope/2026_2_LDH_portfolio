@@ -1,0 +1,17 @@
+db/
+incremental_db/
+output_files/
+simulation/
+timing/
+board/
+*.qws
+*.bak
+*.rpt
+*.summary
+*.smsg
+*.pin
+*.done
+*.jdi
+*.sld
+*.qdf
+qar_info.json
