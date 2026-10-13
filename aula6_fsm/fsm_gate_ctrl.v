@@ -9,10 +9,10 @@ module fsm_gate_ctrl(
 	//Sinais de controle
 	input user_button,
 	input start_stop,
-	input end_stop
+	input end_stop,
 	//Saídas
-	output motor_power,
-	output motor_direction
+	output reg motor_power,
+	output reg motor_direction
 );
 
 	reg [1:0] state;
@@ -31,28 +31,28 @@ module fsm_gate_ctrl(
 	always @(*) begin
 		case(state)
 			`STATE_CLOSED: begin
-				if (user_button = 1'b0) begin
+				if (user_button == 1'b0) begin
 					nextState = `STATE_CLOSED;
 				end else begin
 					nextState = `STATE_OPENING;
 				end
 			end
 			`STATE_OPENING: begin
-				if (end_stop = 1'b0) begin
+				if (end_stop == 1'b0) begin
 					nextState = `STATE_OPENING;
 				end else begin
 					nextState = `STATE_OPEN;
 				end
 			end
 			`STATE_OPEN: begin
-				if (user_button = 1'b0) begin
+				if (user_button == 1'b0) begin
 					nextState = `STATE_OPEN;
 				end else begin
 					nextState = `STATE_CLOSING;
 				end
 			end
 			`STATE_CLOSING: begin
-				if (start_stop = 1'b0) begin
+				if (start_stop == 1'b0) begin
 					nextState = `STATE_CLOSING;
 				end else begin
 					nextState = `STATE_CLOSED;
