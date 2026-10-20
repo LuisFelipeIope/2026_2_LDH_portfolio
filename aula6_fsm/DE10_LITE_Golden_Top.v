@@ -134,6 +134,12 @@ module DE10_LITE_Golden_Top(
 //  Structural coding
 //=======================================================
 
+	clk_1s u1 (
+		.rst(-KEY[0]),
+		.clk_50M(MAX10_CLK1_50),
+		.clk_out(clk_1s)
+	);
 
+	//gate simulator
 
 endmodule
