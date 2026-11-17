@@ -13,6 +13,10 @@ module tb_impulse_response;
 		.x(x), .y(y)
 	);
 	
+		always begin
+		#10  $monitor("%d, %d", x, y);
+	end
+	
 	initial begin
 		clk = 0;
 		rst = 1;

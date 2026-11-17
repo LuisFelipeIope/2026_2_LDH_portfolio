@@ -18,7 +18,6 @@ module movavg_filter (
 			x1 <= x;
 			x2 <= x1;
 			x3 <= x2;
-			y 	<= sum[13:2];
 		end
 	end
 	
